@@ -1,7 +1,7 @@
 import cherrypy
 from cherrypy import expose
 
-from sqlalchemy.orm import mapper, relationship
+import sqlalchemy
 
 from genshi.template import TemplateLoader
 loader = TemplateLoader('app/view/templates', auto_reload=True)
