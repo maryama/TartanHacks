@@ -30,7 +30,7 @@ class Root(object):
         **config['Facebook']))
 
   @expose
-  def bookmark(code = None,
+  def bookmarks(code = None,
              error_reason = None,
              error = None,
              error_description = None):
