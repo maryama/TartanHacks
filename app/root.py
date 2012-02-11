@@ -44,20 +44,22 @@ class Root(object):
         "&redirect_uri={url}".format(**config['Facebook']) +
         "&client_secret={secret}&".format(**config['Facebook']) +
         "&code=" + code)
-      token_query = json.loads(external.read())
+      return external.read()
+      token_query = external.read()
       external.close()
       try:
-        token = token_query['access_token']
         query_site = urlopen(
-          'https://graph.facebook.com/me?access_token={token}'.format(
-            token = token))
+          'https://graph.facebook.com/me?' + token)
         query = json.loads(query_site.read())
-        query_site.close()
         id = query['id']
         return number
-        
+
+      except ValueError:
+        return token_query
       except IndexError:
         return "Failed"
+      finally:
+        query_site.close()
 
     # something for loading page with groups
     @expose

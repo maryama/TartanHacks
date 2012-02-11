@@ -585,3 +585,36 @@ ChannelFailures: IOError("Port 8080 not free on '127.0.0.1'",)
 [11/Feb/2012:03:51:17] ENGINE Bus STOPPED
 [11/Feb/2012:03:51:17] ENGINE Bus EXITING
 [11/Feb/2012:03:51:17] ENGINE Bus EXITED
+[11/Feb/2012:14:56:20] ENGINE Listening for SIGHUP.
+[11/Feb/2012:14:56:20] ENGINE Listening for SIGTERM.
+[11/Feb/2012:14:56:20] ENGINE Listening for SIGUSR1.
+[11/Feb/2012:14:56:20] ENGINE Bus STARTING
+[11/Feb/2012:14:56:20] ENGINE Started monitor thread '_TimeoutMonitor'.
+[11/Feb/2012:14:56:20] ENGINE Started monitor thread 'Autoreloader'.
+[11/Feb/2012:14:56:25] ENGINE Error in 'start' listener <bound method Server.start of <cherrypy._cpserver.Server object at 0xd2d150>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/cherrypy/process/wspbus.py", line 197, in publish
+    output.append(listener(*args, **kwargs))
+  File "/usr/local/lib/python2.7/site-packages/cherrypy/_cpserver.py", line 151, in start
+    ServerAdapter.start(self)
+  File "/usr/local/lib/python2.7/site-packages/cherrypy/process/servers.py", line 167, in start
+    wait_for_free_port(*self.bind_addr)
+  File "/usr/local/lib/python2.7/site-packages/cherrypy/process/servers.py", line 410, in wait_for_free_port
+    raise IOError("Port %r not free on %r" % (port, host))
+IOError: Port 8080 not free on '127.0.0.1'
+
+[11/Feb/2012:14:56:25] ENGINE Shutting down due to error in start listener:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/cherrypy/process/wspbus.py", line 235, in start
+    self.publish('start')
+  File "/usr/local/lib/python2.7/site-packages/cherrypy/process/wspbus.py", line 215, in publish
+    raise exc
+ChannelFailures: IOError("Port 8080 not free on '127.0.0.1'",)
+
+[11/Feb/2012:14:56:25] ENGINE Bus STOPPING
+[11/Feb/2012:14:56:25] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('127.0.0.1', 8080)) already shut down
+[11/Feb/2012:14:56:25] ENGINE Stopped thread '_TimeoutMonitor'.
+[11/Feb/2012:14:56:25] ENGINE Stopped thread 'Autoreloader'.
+[11/Feb/2012:14:56:25] ENGINE Bus STOPPED
+[11/Feb/2012:14:56:25] ENGINE Bus EXITING
+[11/Feb/2012:14:56:25] ENGINE Bus EXITED
