@@ -2,9 +2,12 @@ import cherrypy
 from cherrypy import expose
 
 import sqlalchemy
-import user 
-import link 
-import group 
+
+'''
+from model import user 
+from model import link 
+from model import group 
+'''
 
 from genshi.template import TemplateLoader
 loader = TemplateLoader('app/view/templates', auto_reload=True)
