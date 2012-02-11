@@ -4,7 +4,6 @@ from urllib2 import urlopen
 
 import cherrypy
 from cherrypy import expose
-config = cherrypy.request.app.config
 
 import sqlalchemy
 
@@ -25,6 +24,7 @@ class Root(object):
     
   @expose
   def login(*args, **dargs):
+    config = cherrypy.request.app.config
     raise cherrypy.HTTPRedirect("https://www.facebook.com/dialog/oauth?"
      + "client_id={appid}&redirect_uri={url}".format(
         **config['Facebook']))
@@ -34,6 +34,7 @@ class Root(object):
              error_reason = None,
              error = None,
              error_description = None):
+    config = cherrypy.request.app.config
     if error: return "Login Failure."
     if code:
       external = urlopen(
