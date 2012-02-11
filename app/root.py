@@ -10,7 +10,7 @@ class Root(object):
     @expose
     def index(*args, **dargs):
         tmpl = loader.load('index.html')
-        page = tmpl.generate(links=True)
+        page = tmpl.generate()
         return page.render('html', doctype='html')
     
     # something for loading page with groups
