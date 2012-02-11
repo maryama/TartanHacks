@@ -2,10 +2,7 @@ import cherrypy
 from cherrypy import expose
 
 from genshi.template import TemplateLoader
-loader = TemplateLoader(
-    os.path.join(os.path.dirname(__file__), 'app/templates'),
-    auto_reload=True) 
-
+loader = TemplateLoader('app/view/templates', auto_reload=True)
 class Root(object):
 
   @expose
