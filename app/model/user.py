@@ -3,7 +3,6 @@
 from sqlalchemy.orm import mapper, relationship
 
 from etools.data.db import instance_transaction
-#TODO: how do I get the groups here?
 
 #from .
 import DB
