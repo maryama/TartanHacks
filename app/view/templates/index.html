@@ -10,11 +10,13 @@
       var items = o.query.results.item;
       var output = "";
       var no_items=items.length;
-      for(var i=0;i<no_items;i++){
+      var i = 0;
+      while (i < no_items){
         var title = items[i].title;
         var link = items[i].link;
         var desc = items[i].description;
         output += "<h3><a href='" + link + "'>"+title+"</a></h3>" + desc + "<hr/>";
+        i += 1;
       }
       // Place news stories in div tag
       document.getElementById('results').innerHTML = output;  
