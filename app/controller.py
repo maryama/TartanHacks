@@ -3,16 +3,22 @@
 import operator, os, pickle, sys
 
 import cherrypy
+from genshi.template import TemplateLoader
 
+loader = TemplateLoader(
+    os.path.join(os.path.dirname(__file__), 'templates'),
+    auto_reload=True
+)
 
 class Root(object):
 
     def __init__(self, data):
         self.data = data
 
-    @cherrypy.expose
+ @cherrypy.expose
     def index(self):
-        return 'Inspektor'
+        tmpl = loader.load('index.html')
+        return tmpl.generate(title='Inspektor').render('html', doctype='html')
 
 
 def main(filename):
