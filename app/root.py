@@ -1,7 +1,6 @@
 import cherrypy
 from cherrypy import expose
 
-import DB
 
 import sqlalchemy
 from sqlalchemy import MetaData, Table, Column, Integer, Text, ForeignKey
