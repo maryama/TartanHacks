@@ -63,8 +63,8 @@ def arg2kw (args, func, bind = False):
     for param, arg in zip(params, args):
         kw[param] = arg
     return kw
-    
-    
+
+
 class lazyattr(object):
 
     def __init__(self, eval_):
@@ -98,3 +98,31 @@ def import_for_modules(module_str, call_globals, call_locals):
             call_globals.update(addedmodule.__dict__)
             
     return import_from_if_using
+
+
+class semistaticmethod(staticmethod):
+
+    def __get__(self, instance, owner):
+        if instance is None:
+            return staticmethod.__get__(self, instance, owner)
+        else:
+            return staticmethod.__get__(self, instance, owner).__get__(instance, owner)
+
+class Record(dict):
+
+    def __init__(self, *args, **kwargs):
+        dict.__init__(self, *args, **kwargs)
+        self.__dict__ = self
+
+    @semistaticmethod
+    def update(self, *args, **kwargs):
+        dict.update(self.__dict__, *args, **kwargs)
+
+    @semistaticmethod
+    def update_existing(self, *args, **kwargs):
+        final_kwargs = kwargs.copy()
+        for i in kwargs:
+            if i not in self.__dict__: del final_kwargs[i]
+        Record.update(self, *args, **final_kwargs)
+        
+            
