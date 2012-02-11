@@ -12,7 +12,9 @@ import app
 from app import application
 
 # Site-wide (global) config
-cherrypy.config.update({'tools.staticdir.root': os.path.abspath('.')})
+cherrypy.config.update({
+        'log.error_file': 'site.log',
+        'tools.staticdir.root': os.path.abspath('.')})
 
      
 #Add development-exclusive app configuration
