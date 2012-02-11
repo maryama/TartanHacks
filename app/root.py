@@ -1,8 +1,11 @@
 import cherrypy
 from cherrypy import expose
 
+from sqlalchemy.orm import mapper, relationship
+
 from genshi.template import TemplateLoader
 loader = TemplateLoader('app/view/templates', auto_reload=True)
+
 
 class Root(object):
 
