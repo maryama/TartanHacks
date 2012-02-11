@@ -13,4 +13,3 @@ class Root(object):
         page = tmpl.generate()
         return page.render('html', doctype='html')
         return 'Test'
-    def index(self):
