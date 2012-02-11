@@ -12,13 +12,7 @@ import app
 from app import application
 
 # Site-wide (global) config
-cherrypy.config.update({'environment': 'staging',
-                        'log.error_file': 'site.log',
-                        'request.throw_errors': True,
-                        'log.screen': True,
-                        'engine.autoreload_on': True,
-                        'tools.staticdir.root': os.path.abspath('.')
-                        })
+cherrypy.config.update({'tools.staticdir.root': os.path.abspath('.')})
 
      
 #Add development-exclusive app configuration
