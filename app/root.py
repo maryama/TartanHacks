@@ -1,9 +1,6 @@
 import cherrypy
 from cherrypy import expose
 
-import sqlalchemy
-from sqlalchemy import MetaData, Table, Column, Integer, Text, ForeignKey
-
 from genshi.template import TemplateLoader
 loader = TemplateLoader('app/view/templates', auto_reload=True)
 
