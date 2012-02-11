@@ -6,7 +6,6 @@ from etools import Record
 #from .
 import DB
 
-#TODO: fix records
 class Link(Record):
 
     def __init__(self,
@@ -27,8 +26,8 @@ class Link(Record):
     #CRUD Methods
 
     @staticmethod
-    def select(username, session):
-        return session.query(User).filter_by(username=username).one()
+    def select(link_id, session):
+        return session.query(Link).filter_by(link_id=link_id).one()
 
     def insert(self, session):
         with self.transaction(session):

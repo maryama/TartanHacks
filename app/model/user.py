@@ -2,7 +2,6 @@
 
 from sqlalchemy.orm import mapper, relationship
 
-from etools import Record
 from etools.data.db import instance_transaction
 #TODO: how do I get the groups here?
 
@@ -14,7 +13,7 @@ class User(object):
     def __init__(self,
                 user_id = None): Record.update(**locals()):
       self.user_id = user_id
-      self.groups = #how do i get the database stuff needed for this?
+      self.groups = None
 
     def __composite_values__(self):
         return [ self.user_id ]
@@ -28,8 +27,8 @@ class User(object):
     #CRUD Methods
 
     @staticmethod
-    def select(username, session):
-        return session.query(User).filter_by(username=username).one()
+    def select(user_id, session):
+        return session.query(User).filter_by(user_id=user_id).one()
 
     def insert(self, session):
         with self.transaction(session):
@@ -39,10 +38,14 @@ class User(object):
         with self.transaction(session):
             Record.update_existing(self, **data)
 
+    def get_groups(self, session, groups_table):
+        with self.transaction(session):
+            self.groups = session.query(groups_table).filter_by(user_id=self.user_id)
+
+
     def delete(self, session):
         with session.begin():
             session.delete(self)
         del self
 
-mapper(User, DB.user_accounts,
-       polymorphic_on = DB.user_accounts.c.group, polymorphic_identity = 'user')
+mapper(User, DB.groups)

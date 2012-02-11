@@ -3,7 +3,6 @@ from sqlalchemy.orm import mapper
 
 from etools import Record
 
-#TODO: how do I get the links here?
 #from .
 import DB
 
@@ -16,6 +15,7 @@ class Group(Record):
                  ):
 
         Record.__init__(**locals)
+        self.links = None
 
     def __composite_values__(self):
         return [
@@ -30,8 +30,8 @@ class Group(Record):
     #CRUD Methods
 
     @staticmethod
-    def select(username, session):
-        return session.query(User).filter_by(username=username).one()
+    def select(group_id, session):
+        return session.query(Group).filter_by(group_id=group_id).one()
 
     def insert(self, session):
         with self.transaction(session):
@@ -41,8 +41,13 @@ class Group(Record):
         with self.transaction(session):
             Record.update_existing(self, **data)
 
+    def get_links(self, session, links_table):
+        with self.transaction(session):
+            self.groups = session.query(links_table).filter_by(group_id=self.group_id)
+
     def delete(self, session):
         with session.begin():
             session.delete(self)
         del self
+
 mapper(Group, DB.group_info)
