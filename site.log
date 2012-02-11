@@ -1,0 +1,20 @@
+[10/Feb/2012:20:21:50] ENGINE Bus STARTING
+[10/Feb/2012:20:21:50] ENGINE Started monitor thread 'Autoreloader'.
+[10/Feb/2012:20:21:50] ENGINE Started monitor thread '_TimeoutMonitor'.
+[10/Feb/2012:20:21:50] ENGINE Serving on 127.0.0.1:8080
+[10/Feb/2012:20:21:50] ENGINE Bus STARTED
+[10/Feb/2012:20:22:41] ENGINE Restarting because /home/eric/Development/TartanHacks/app/__init__.py changed.
+[10/Feb/2012:20:22:41] ENGINE Stopped thread 'Autoreloader'.
+[10/Feb/2012:20:22:41] ENGINE Bus STOPPING
+[10/Feb/2012:20:22:42] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('127.0.0.1', 8080)) shut down
+[10/Feb/2012:20:22:42] ENGINE Stopped thread '_TimeoutMonitor'.
+[10/Feb/2012:20:22:42] ENGINE Bus STOPPED
+[10/Feb/2012:20:22:42] ENGINE Bus EXITING
+[10/Feb/2012:20:22:42] ENGINE Bus EXITED
+[10/Feb/2012:20:22:42] ENGINE Waiting for child threads to terminate...
+[10/Feb/2012:20:22:42] ENGINE Re-spawning wsgi_dev.py
+[10/Feb/2012:20:22:42] ENGINE Bus STARTING
+[10/Feb/2012:20:22:42] ENGINE Started monitor thread 'Autoreloader'.
+[10/Feb/2012:20:22:42] ENGINE Started monitor thread '_TimeoutMonitor'.
+[10/Feb/2012:20:22:42] ENGINE Serving on 127.0.0.1:8080
+[10/Feb/2012:20:22:42] ENGINE Bus STARTED
