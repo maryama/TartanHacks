@@ -4,7 +4,6 @@ from urllib2 import urlopen
 
 import cherrypy
 from cherrypy import expose
-config = cherrypy.request.app.config
 
 import sqlalchemy
 
@@ -20,28 +19,30 @@ class Root(object):
   @expose
   def index(*args, **dargs):
     tmpl = loader.load('index.html')
-    page = tmpl.generate(title='Inspektor')
+    page = tmpl.generate()
     return page.render('html', doctype='html')
     
   @expose
   def login(*args, **dargs):
+    config = cherrypy.request.app.config
     raise cherrypy.HTTPRedirect("https://www.facebook.com/dialog/oauth?"
      + "client_id={appid}&redirect_uri={url}".format(
-        **config['Facebook'])
+        **config['Facebook']))
 
   @expose
   def logged(code = None,
              error_reason = None,
              error = None,
              error_description = None):
+    config = cherrypy.request.app.config
     if error: return "Login Failure."
     if code:
       external = urlopen(
         "https://graph.facebook.com/oauth/access_token?" +
         "client_id={appid}".format(**config['Facebook']) +
         "&redirect_uri={url}".format(**config['Facebook']) +
-        "&client_secret={secret}&".format(**config['Facebook']
-        "code=" + code))
+        "&client_secret={secret}&".format(**config['Facebook']) +
+        "&code=" + code)
       token_query = json.loads(external.read())
       external.close()
       try:
