@@ -11,7 +11,7 @@ import DB
 class User(object):
     
     def __init__(self,
-                user_id = None): Record.update(**locals()):
+                user_id = None):
       self.user_id = user_id
       self.groups = None
 

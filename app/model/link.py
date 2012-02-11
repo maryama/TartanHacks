@@ -14,7 +14,7 @@ class Link(Record):
                  twitter_handle = None
                  ):
 
-        Record.__init__(**locals)
+        Record.__init__(self, url, title, twitter_handle)
 
     def __composite_values__(self):
         return [

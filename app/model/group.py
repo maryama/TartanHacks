@@ -14,7 +14,7 @@ class Group(Record):
                  time_accessed = None
                  ):
 
-        Record.__init__(**locals)
+        Record.__init__(self, name, num_links, time_accessed)
         self.links = None
 
     def __composite_values__(self):
