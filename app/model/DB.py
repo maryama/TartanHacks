@@ -3,28 +3,23 @@ from sqlalchemy import MetaData, Table, Column, Integer, Text, ForeignKey
 
 metadata = MetaData()
 
-user_accounts = Table('users', metadata,
-                    Column('username', Text, primary_key=True),
-                    Column('password', Text),
-                    Column('contact_id', Integer, ForeignKey('contacts.id')),
-                    Column('group', Text),
+groups = Table('groups', metadata,
+                    Column('user_id', Integer),
+                    Column('group_id', Integer)
                     )
 
-students = Table('students', metadata,
-                 Column('username', Text, ForeignKey('users.username'), primary_key = True),
-                 Column('lname', Text),
-                 Column('fname', Text),
-                 Column('mname', Text),
-                 Column('qualifications', Text),
-                 Column('pos_hours', Text)
-                 )
-
-employers = Table('employers', metadata,
-                   Column('username', Text, ForeignKey('users.username'), primary_key = True)
+links = Table('links', metadata,
+                    Column('group_id', Integer),
+                    Column('link_id', Integer)
+                    )
+link_info = Table('link_info', metadata,
+                   Column('link_id', Integer),
+                   Column('url', Text),
+                   Column('title', Text),
+                   Column('twitter_handle', Text)
                   )
                  
-
-contacts = Table('contacts', metadata,
+group_info  = Table('contacts', metadata,
                     Column('id', Integer, primary_key = True),
                     Column('phone', Integer),
                     Column('email', Text),
@@ -33,12 +28,3 @@ contacts = Table('contacts', metadata,
                     Column('state', Text),
                     Column('zip', Text)
                     )
-
-
-#jobs = Table('jobs', metadata)
-
-#candidates = Table('candidates', metadata)
-
-#employees = Table('employees', metadata)
-
-
