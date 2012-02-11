@@ -1,5 +1,6 @@
 www:
   type: python
+  approot: .
 
 db:
   type: mysql
