@@ -17,23 +17,24 @@ loader = TemplateLoader('app/view/templates', auto_reload=True)
 class Root(object):
 
   @expose
-  def index(*args, **dargs):
+  def index(self, *args, **dargs):
     tmpl = loader.load('index.html')
     page = tmpl.generate()
     return page.render('html', doctype='html')
     
   @expose
-  def login(*args, **dargs):
+  def login(self, *args, **dargs):
     config = cherrypy.request.app.config
     raise cherrypy.HTTPRedirect("https://www.facebook.com/dialog/oauth?"
      + "client_id={appid}&redirect_uri={url}".format(
         **config['Facebook']))
 
   @expose
-  def bookmarks(code = None,
-             error_reason = None,
-             error = None,
-             error_description = None):
+  def bookmarks(self,
+                code = None,
+                error_reason = None,
+                error = None,
+                error_description = None):
     config = cherrypy.request.app.config
     if error: return "Login Failure."
     if code:
@@ -60,21 +61,21 @@ class Root(object):
 
     # something for loading page with groups
     @expose
-    def groups(*args, **dargs):
+    def groups(self, *args, **dargs):
         tmpl = loader.load('index2.html')
         page = tmpl.generate(links=True)
         return page.render('html', doctype='html')
     
     # something for loading search results
     @expose
-    def search(*args, **dargs):
+    def search(self, *args, **dargs):
         tmpl = loader.load('index2.html')
         page = tmpl.generate(links=True)
         return page.render('html', doctype='html')
     
     # something for loading page with links
     @expose
-    def index3(*args, **dargs):
+    def index3(self, *args, **dargs):
         tmpl = loader.load('index3.html')
         page = tmpl.generate(links=True)
         return page.render('html', doctype='html')
