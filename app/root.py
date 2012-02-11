@@ -10,6 +10,6 @@ class Root(object):
     @expose
     def index(*args, **dargs):
         tmpl = loader.load('index.html')
-        page = tmpl.generate(None)
+        page = tmpl.generate(link=None)
         return page.render('html', doctype='html')
         return 'Test'
