@@ -19,7 +19,7 @@ class User(object):
 
     #wut
     def __repr__(self):
-        return '<{type} {username}>'.format(type = type(self), **self.__dict__)
+        return '<{type} {user_id}>'.format(type = type(self), **self.__dict__)
 
     transaction = instance_transaction
 
