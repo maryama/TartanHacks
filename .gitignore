@@ -1,0 +1,5 @@
+#ignore python compiled things
+*.pyc
+
+#ignore log file
+app/pip-log.txt
