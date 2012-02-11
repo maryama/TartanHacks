@@ -8,7 +8,8 @@ from paste import evalexception
 from paste.httpexceptions import *
 
 
-import site
+import app
+from app import application
 
 # Site-wide (global) config
 cherrypy.config.update({'environment': 'staging',
@@ -19,20 +20,15 @@ cherrypy.config.update({'environment': 'staging',
                         'tools.staticdir.root': os.path.abspath('.')
                         })
 
-
-#Assign the app to application
-
-application = site.app 
-
      
 #Add development-exclusive app configuration
 application.wsgiapp.pipeline.append(('paste_exc', evalexception.middleware.EvalException))                  
                  
 # Mount each app and pass it its own config
-cherrypy.tree.mount(application, "/", 'crnjobs_dev.ini')
+cherrypy.tree.mount(application, "/", 'app_dev.ini')
 
 #Configure each app
-site.configure()
+app.configure()
 
 if __name__ == '__main__':
     
