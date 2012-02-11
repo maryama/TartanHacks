@@ -27,7 +27,7 @@ class Root(object):
   def login(*args, **dargs):
     raise cherrypy.HTTPRedirect("https://www.facebook.com/dialog/oauth?"
      + "client_id={appid}&redirect_uri={url}".format(
-        **config['Facebook'])
+        **config['Facebook']))
 
   @expose
   def logged(code = None,
