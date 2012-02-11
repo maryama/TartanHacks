@@ -9,12 +9,10 @@
       <h1>News</h1>
     </div>
 
+    Hello world!
+
     <ol py:if="links">
-      <li py:for="link in reversed(links)">
-        <!-- FAILS HERE: unable to read link object but can read links -->
-        <a href="${link}">${link}</a>
-        Hello world!
-      </li>
+      LINKS!
     </ol>
 
     <p><a class="action" href="/submit/">Submit new link</a></p>
