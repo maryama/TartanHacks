@@ -10,7 +10,7 @@ class Root(object):
     @expose
     def index(*args, **dargs):
         tmpl = loader.load('index.html')
-        page = tmpl.generate(links=['hello.com', 'your.net', 'face.ly'])
+        page = tmpl.generate()
         return page.render('html', doctype='html')
         return 'Test'
     def index(self):
