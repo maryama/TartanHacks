@@ -12,7 +12,6 @@ class Root(object):
     page = tmpl.generate(title='Inspektor')
     return page.render('html', doctype='html')
     
-'''
     # something for loading page with groups
     @expose
     def groups(*args, **dargs):
@@ -33,4 +32,3 @@ class Root(object):
         tmpl = loader.load('index3.html')
         page = tmpl.generate(links=True)
         return page.render('html', doctype='html')
-'''
