@@ -1,7 +1,6 @@
 import cherrypy
 from cherrypy import expose
 
-
 import sqlalchemy
 from sqlalchemy import MetaData, Table, Column, Integer, Text, ForeignKey
 
@@ -16,6 +15,7 @@ class Root(object):
     page = tmpl.generate(title='Inspektor')
     return page.render('html', doctype='html')
     
+'''
     # something for loading page with groups
     @expose
     def groups(*args, **dargs):
@@ -30,7 +30,6 @@ class Root(object):
         page = tmpl.generate(links=True)
         return page.render('html', doctype='html')
     
-'''
     # something for loading page with links
     @expose
     def index3(*args, **dargs):
