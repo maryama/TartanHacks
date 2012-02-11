@@ -9,11 +9,11 @@ groups = Table('groups', metadata,
                     )
 
 links = Table('links', metadata,
-                    Column('group_id', Integer),
-                    Column('link_id', Integer)
+                    Column('group_id', Integer, primary_key=True),
+                    Column('link_id', Integer, primary_key=True)
                     )
 link_info = Table('link_info', metadata,
-                   Column('link_id', Integer),
+                   Column('link_id', Integer, primary_key=True),
                    Column('url', Text),
                    Column('title', Text),
                    Column('twitter_handle', Text)
