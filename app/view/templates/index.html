@@ -10,11 +10,11 @@
       var items = o.query.results.item;
       var output = "";
       var no_items = items.length;
-      var i = 0;
-      while (i < no_items) {
-        var title = items[i].title;
-        var link = items[i].link;
-        var desc = items[i].description;
+      var i = 1;
+      while (i <= no_items) {
+        var title = items[i-1].title;
+        var link = items[i-1].link;
+        var desc = items[i-1].description;
         output += "<h3><a href='" + link + "'>"+title+"</a></h3>" + desc + "<hr/>";
         i++;
       }
