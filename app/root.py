@@ -40,8 +40,8 @@ class Root(object):
         "https://graph.facebook.com/oauth/access_token?" +
         "client_id={appid}".format(**config['Facebook']) +
         "&redirect_uri={url}".format(**config['Facebook']) +
-        "&client_secret={secret}&".format(**config['Facebook']
-        "code=" + code))
+        "&client_secret={secret}&".format(**config['Facebook']) +
+        "&code=" + code)
       token_query = json.loads(external.read())
       external.close()
       try:
