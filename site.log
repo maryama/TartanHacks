@@ -18,3 +18,8 @@
 [10/Feb/2012:20:22:42] ENGINE Started monitor thread '_TimeoutMonitor'.
 [10/Feb/2012:20:22:42] ENGINE Serving on 127.0.0.1:8080
 [10/Feb/2012:20:22:42] ENGINE Bus STARTED
+[10/Feb/2012:21:12:24] ENGINE Bus STARTING
+[10/Feb/2012:21:12:24] ENGINE Started monitor thread '_TimeoutMonitor'.
+[10/Feb/2012:21:12:24] ENGINE Started monitor thread 'Autoreloader'.
+[10/Feb/2012:21:12:24] ENGINE Serving on 127.0.0.1:8080
+[10/Feb/2012:21:12:24] ENGINE Bus STARTED

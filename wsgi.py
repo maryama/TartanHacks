@@ -24,15 +24,8 @@ cherrypy.config.update({'environment': 'staging',
 #Add development-exclusive app configuration
 application.wsgiapp.pipeline.append(('paste_exc', evalexception.middleware.EvalException))                  
                  
-# Mount each app and pass it its own config
-cherrypy.tree.mount(application, "/", 'app_dev.ini')
+# Add config
+application.merge('app_dev.ini')
 
 #Configure each app
 app.configure()
-
-if __name__ == '__main__':
-    
-    #Start the engine
-    cherrypy.engine.start()
-    cherrypy.engine.block()
-    cherrypy.engine.stop()
