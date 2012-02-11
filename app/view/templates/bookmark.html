@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Inspektor | Bookmark and Search</title>
+    <title>Inspektor | Bookmarks</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -23,12 +23,12 @@
     <link rel="apple-touch-icon" href="assets/ico/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-touch-icon-114x114.png">
-  </head>
+    
+</head>
 
   <body data-spy="scroll" data-target=".subnav" data-offset="50">
-
-
-  <!-- Navbar
+  
+   <!-- Navbar
     ================================================== -->
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
@@ -41,13 +41,13 @@
           <a class="brand" href="./index.html">Inspektor</a>
            <div class="nav-collapse">
             <ul class="nav">
-              <li class="active">
+              <li class="">
                 <a href="./index.html">Home</a>
               </li>
               <li class="">
                 <a href="./search.html">Search</a>
               </li>
-              <li class="">
+              <li class="active">
                 <a href="./bookmark.html">Bookmarks</a>
               </li>
             </ul>
@@ -58,55 +58,42 @@
 
     <div class="container">
 
-<!-- Masthead
-================================================== -->
-<header class="jumbotron masthead">
-  <div class="inner">
-    <h1>Inspektor</h1>
-    <p>Simple and flexible search engine</p>
-  </div>
-</header>
+<fieldset>
+<h1>Add Bookmark</h2>
 
-<button><a href="search.html">Login</a></button>
 
-<hr class="soften">
+	<form class="well form-search">
+		<h3>Step 1: Paste the URL</h3>
+        <input type="text" class="input-xxlarge" placeholder="http://www.example.com">
+		<br/><br/><br/>
+		<h3>Step 2: Select the categories related to the webpage</h3>
+		
+		 <div class="control-group">
+            <div class="controls">
+              <select multiple="multiple" id="multiSelect">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div>
+	<br/>
 
-<div class="marketing">
-  <h1>Designed for everyone, everywhere.</h1>
-  <p class="marketing-byline">Need reasons to love Bootstrap? Look no further.</p>
-  <div class="row">
-    <div class="span4">
-      <img class="bs-icon" src="assets/img/glyphicons/glyphicons_072_bookmark.png">
-      <h2>Bookmark your favorite sites</h2>
-      <p>Like you, we love building awesome products on the web. We love it so much, we decided to help people just like us do it easier, better, and faster. Bootstrap is built for you.</p>
-    </div>
-    <div class="span4">
-      <img class="bs-icon" src="assets/img/glyphicons/glyphicons_155_show_thumbnails.png">
-      <h2>Put them into categories</h2>
-      <p>Bootstrap is designed to help people of all skill level&mdash;designer or developer, huge nerd or early beginner. Use it as a complete kit or use to start something more complex.</p>
-    </div>
-    <div class="span4">
-      <img class="bs-icon" src="assets/img/glyphicons/glyphicons_027_search.png">
-      <h2>Search within the categories</h2>
-      <p>Originally built with only modern browsers in mind, Bootstrap has evolved to include support for all major browsers (even IE7!) and, with Bootstrap 2, tablets and smartphones, too.</p>
-    </div>
-  </div><!--/row-->
-  
-  <hr class="soften">
+		<h3>OR Create a new category</h3>
+		<input type="text" class="input-xlarge" placeholder="eg. Shopping, Educational, etc.">
+		<br/><br/></br>
+        <a class="btn btn-success" href="#"><i class="icon-plus icon-white"></i> Add Bookmark</a> or <a href="index.html">cancel</c>
 
-  
-</div><!-- /.marketing -->
+    </form>
 
-     <!-- Footer
-      ================================================== -->
-      <footer class="footer">
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>Designed and built with all the love in the world <a href="http://twitter.com/twitter" target="_blank">@twitter</a> by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
-        <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-        <p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-      </footer>
 
-    </div><!-- /container -->
+</fieldset>
+
+
+
+</div><!-- /container -->
 
 
 
